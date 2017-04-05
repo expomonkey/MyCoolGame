@@ -20,16 +20,12 @@ public class SpawnScript : MonoBehaviour {
     
 	void spawn()
     {
+		//Spawns a prefab from a list at using it's original transform values
+		//every "spawntime" seconds? ticks?
         GameObject thing = obj[Random.Range(0, obj.GetLength(0))];
         Vector3 pos = thing.transform.position;
         pos.y = pos.y+transform.position.y;
         Instantiate(thing, pos, Quaternion.identity);
-        //GameObject thing =Instantiate(obj[Random.Range(0, obj.GetLength(0))],transform.position,Quaternion.identity);
-        // Vector3 thingpos = thing.transform.position;
-        // thingpos.x = 0.0f;
-        // thingpos.y = 12.0f;
-        //  thing.transform.position = thingpos;
-
         Invoke("spawn", spawntime);
     }
 }

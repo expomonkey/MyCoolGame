@@ -10,12 +10,11 @@ public class DestroyerScript : MonoBehaviour {
     {
         if (thing.tag == "Player")
         {
-			
+			//If the death quad hits the player, game over
             Application.LoadLevel("Game Over");
-            //SceneManager.LoadScene("Main Level");
-          //  Debug.Break();
             return;
         }
+		//Otherwise, destroy it (Which isn't currently working)
         if (thing.gameObject.transform.parent)
         {
             Destroy(thing.gameObject.transform.parent.gameObject);
@@ -27,6 +26,8 @@ public class DestroyerScript : MonoBehaviour {
     }
     private void LateUpdate()
     {
+		//Move the death quad up, CameraSpeed should be the same as the world's camera speed
+		//As well as the spawner's cameraSpeed
         Vector3 deathos=transform.position;
         deathos.y += CameraSpeed;
         transform.position = deathos;

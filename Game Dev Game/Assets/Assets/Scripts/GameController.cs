@@ -8,18 +8,17 @@ public class GameController : MonoBehaviour {
     public GameObject player;
     float highest = 0.0f;
     public int highScoreTemp = 0;
-    // Use this for initialization
     
     void Start()
     {
         highest = player.transform.position.y;
-        Debug.Log("Started");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-    
+    //Sets the high score to the highest y value reached and stores it in the preferences
         if (score > PlayerPrefs.GetInt("High Score"))
         {
             PlayerPrefs.SetInt("High Score", score);
@@ -42,7 +41,6 @@ public class GameController : MonoBehaviour {
     {
 
         scoretext.text = "Score: " + score;
-       // Debug.Log("Current Score" + score);
     }
 
 }
